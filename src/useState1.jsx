@@ -8,7 +8,6 @@ export default function Vote(props){
     // 给属性设置默认值
     let title = props.title || '--';
     //=》 想在函数组件中拥有状态和修改状态后重新渲染组件的方法
-    //=>尝试使用引用类型管控多种状态
     // 1. setState中赋值什么，都相当于把原始状态整体替换成什么，所以在设置新的状态时，我们都需要把原始的状态克隆一份过来 setState({...state,xxx:xxx})
     // 2. 每一次重新赋值状态，都会额外开辟一些内容空间，所以官方推荐我们使用多次use-State
     // let [状态state，修改状态的方法set-state] = useState(初始状态值)

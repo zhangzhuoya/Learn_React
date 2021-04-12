@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-function useEffect(callback,dependencyList) {
-    let flag = true//执行
-    if (!dependencyList||flag) {
-        callback()
-        prev = dependencyList;
-    }
+// function useEffect(callback,dependencyList) {
+//     let flag = true//执行
+//     if (!dependencyList||flag) {
+//         callback()
+//         prev = dependencyList;
+//     }
 
     
-}
+// }
 export default function Vote(props){
     console.log(props);
     // 给属性设置默认值
