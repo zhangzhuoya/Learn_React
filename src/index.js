@@ -1,12 +1,9 @@
+import React from 'react'
 import ReactDOM from 'react-dom';
-// import Votes from './Votes';
-// import InputBox from './InputBox'
-import ReducerBox from './Reducer'
+import Vote from './Vote'
 ReactDOM.render(
   <>
-  {/* <Votes title="我中午吃什么"></Votes> */}
-  {/* <InputBox title="ddddddd"></InputBox> */}
-  <ReducerBox></ReducerBox>
+  <Vote/>
   </>,
   document.getElementById('root')
 );
