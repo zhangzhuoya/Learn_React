@@ -8,10 +8,32 @@
 // 3. 不能设置默认值
 
 import React from 'react';
-
-export default function Vote() {
+console.log(React);
+/**
+ * 在ReactDOM.render进行处理的时候，如果发现TYPE不是一个标签字符串，而是一个函数（一个类），则会把函数执行（创建类的一个实例），于此同时会把组件调用的时候，设置的属性传递给这个函数或者这个类
+ * @returns 
+ * props:就是外部传递进来的属性
+ */
+export default function Vote(props) {//
+    console.log(props);
     return <div>
-        我是投票组件
+    {React.Children.map(props.children,(item,index)=>{
+        console.log(props.children);//会包含空格字符串
+        console.log(item);
+        if (index===0) {
+            console.log(item);
+            return <div>{item}</div>
+        }
+    })}
+    {React.Children.map(props.children,(item,index)=>{
+        if (index===1) {
+            return <div>{item}</div>
+        }
+    })}
+
+       {/* {React.Children.map(props.children,(item,index)=>{
+           return <h3>{item}==={index}</h3>
+       })} */}
     </div>
     
 }
