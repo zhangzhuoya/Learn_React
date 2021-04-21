@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-
+import Vote from './reactComponent'
 ReactDOM.render(
-    <App />,
+  <div>
+   我爱react
+    <Vote /> 
+  </div>,
   document.getElementById('root')
 );
