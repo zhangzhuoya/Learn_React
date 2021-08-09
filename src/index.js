@@ -25,7 +25,7 @@ class Clock extends React.Component {
     return <div onClick={() => {
       // =>修改状态信息
       /**
-       * 1.执行setState必然会触发SHOUNLDCPOMPONENTUPTATE,根据ture还是false决定是否渲染，如果该周期返回false，不会渲染
+       * 1.执行setState必然会触发shouldComponentUpdate,根据ture还是false决定是否渲染，如果该周期返回false，不会渲染
        * 无论返回啥状态都会改变只是没有重新渲染
        */
       let n = this.state.n;
@@ -57,7 +57,7 @@ class Clock extends React.Component {
      * 钩子函数返回true代表允许重新渲染视图，反之停止重新渲染
      */
     console.log('=======shouldComponentUpdate', this.props, this.state, nextProps, nextState);
-    return true
+    return true;
   }
   //=>
   componentWillUpdate() {

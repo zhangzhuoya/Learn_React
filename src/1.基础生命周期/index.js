@@ -8,7 +8,7 @@ class Clock extends React.Component {
   static propTypes = {
 
   };
-  // =>处理状态（执行CONSTRUCTOR获取初始的状态信息）
+  // => 2.处理状态（执行CONSTRUCTOR获取初始的状态信息）
   constructor(props){
     super(props);
     this.state = {n:100}
@@ -20,6 +20,7 @@ class Clock extends React.Component {
     // => 从服务器获取的数据（把获取的数据重新赋值给状态或者redux）
     console.log('========componentWillMount');
   }
+  //=> 4. render 第一次或者重新进行视图渲染s
   render(){
     console.log('=====render');
     return <div onClick={()=>{
