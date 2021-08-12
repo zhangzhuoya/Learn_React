@@ -1,11 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-import {createElement,render} from './SELFJSX'
+import React from "react"
+import reactDom from "react-dom"
+import Vote from "./Vote.jsx"
 
-let jsxObj = createElement("div",{
-  className: 'box',
-  id:'box',
-  index:1
-},'珠峰培训',createElement("span",{className:'box1'},'哈哈哈哈'))
-console.log(jsxObj);
+reactDom.render(<><Vote title="投票组件"></Vote></>,document.getElementById('root'))
