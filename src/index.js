@@ -1,11 +1,8 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-import {createElement,render} from './SELFJSX'
+import React from 'react';
+import ReactDom from 'react-dom';
+import Banner from './components/Banner.jsx'
+import data from './components/banner.json'
 
-let jsxObj = createElement("div",{
-  className: 'box',
-  id:'box',
-  index:1
-},'珠峰培训',createElement("span",{className:'box1'},'哈哈哈哈'))
-console.log(jsxObj);
+ReactDom.render(<div>
+  <Banner data={data}></Banner>
+</div>,document.getElementById('root'))
