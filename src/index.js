@@ -1,4 +1,4 @@
 import React  from 'react'
 import reactDom from 'react-dom'
-import InputBox from './inputBox'
-reactDom.render(<div><InputBox></InputBox></div>,document.getElementById('root'))
+import ReducerBox from './Reducer.jsx'
+reactDom.render(<div><ReducerBox></ReducerBox></div>,document.getElementById('root'))
