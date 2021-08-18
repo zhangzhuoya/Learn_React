@@ -1,3 +1,4 @@
 import React  from 'react'
 import reactDom from 'react-dom'
-reactDom.render(<div></div>,document.getElementById('root'))
+import CountShow from './countShow.jsx'
+reactDom.render(<div><CountShow></CountShow></div>,document.getElementById('root'))
