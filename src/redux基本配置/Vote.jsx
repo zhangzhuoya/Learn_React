@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-
+// import Other from './Other'
 function VoteContent(props) {
     let storeState = props.store.getState()
     let [supNum,setSupNum] = useState(storeState.supNum)
@@ -44,9 +44,9 @@ class Vote extends React.Component {
      * 像REDUX事件池中追加方法（目的： 容器中的状态改变，执行这个方法，控制当然组件重新渲染）
      *  SUB-SCRIBE
      */
-    state = {}
     render(){
         let store = this.props.store
+        console.log(store.getState());
         let {supNum,oppNum} = store.getState();
         return<div>
             <h3>投票组件：<span>N:{supNum+oppNum}</span></h3>
