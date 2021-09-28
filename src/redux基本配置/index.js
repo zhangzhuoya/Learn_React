@@ -13,19 +13,19 @@ const reducer = function(state={
   oppNum: 0 
 
 }, action) {
+  // 为了现在的操作和之前的state用同一个堆，我们把state最好克隆一份再操作。
   state= JSON.parse(JSON.stringify(state))
   switch(action.type) {
     case 'CHANGE_SUP':
       let n = action.n || 1;
       state.supNum +=n;
       break;
-      case 'CHANGE_OPP':
+    case 'CHANGE_OPP':
       let m = action.m || 1;
       state.oppNum +=m;
       break;
   }
   return state
-
 }
 const store = createStore(reducer);
 reactDom.render(<div><Vote store={store}></Vote><Other store={store}></Other></div>,document.getElementById('root'))

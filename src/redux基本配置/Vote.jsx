@@ -1,18 +1,21 @@
 import React,{useState,useEffect} from 'react'
 // import Other from './Other'
 function VoteContent(props) {
+    // 1. 把redux中的状态赋值给组件的私有状态
     let storeState = props.store.getState()
-    let [supNum,setSupNum] = useState(storeState.supNum)
-    let [oppNum,setOppNum] = useState(storeState.oppNum)
+    // let [supNum,setSupNum] = useState(storeState.supNum)
+    // let [oppNum,setOppNum] = useState(storeState.oppNum)
     let [a,setA] = useState(_=>0)
+
+    //  第一次加载完，把组件更新的操作放在事件池中
     useEffect(()=>{
         props.store.subscribe(()=>{
-            // setSupNum(supNum)
-            // setOppNum(oppNum)
+            // setSupNum(storeState.supNum)
+            // setOppNum(storeState.oppNum)
             setA(a+1)
         })
     
-    },[])
+    }, [] );
     return<>
     <p>支持：{props.store.getState().supNum}</p>
     <p>反对：{props.store.getState().oppNum}</p>
