@@ -19,6 +19,26 @@ import PropTypes from 'prop-types'
  * => PureComponent不要乱用，只有那些状态和属性不经常更新的组件我们来做优化
  * 对于经常更新的 这样处理后反而浪费性能，因为每一次比较也是会耗费时间的。
  */
+
+// 把两个对象进行浅比较,只比较对象的第一级，如果属性值是基本类型值，我们只需要比较值是否一样即可
+function shallowEqual(obj1,obj2) {
+    let objlenA = Object.keys(obj1).length;
+    let objlenB = Object.keys(obj2).length;
+    if (objlenA!==objlenB) {
+        return false
+        
+    }
+    for (let key in obj1) {
+        if (obj1[key]!==obj2[key]) {
+            return false
+        }
+    }
+    return true
+    
+}
+// obj1 = {x: 100,y:200,arr:[10,20]}
+// obj2 = {x: 100,y:300,arr:[10,20,300],z:300}
+
 class CountContent extends React.Component {
     render() {
         return <>
@@ -44,10 +64,8 @@ export default class CountShow extends React.Component {
         }}>累加</button></>
     }
     shouldComponentUpdate(nextProps,nextState) {
-        if(this.state.num===nextState.num){
-            return false
-        }
-        return true
+        return !shallowEqual(this.state,nextState)||!shallowEqual(this.props,nextProps)
+        // return true//true继续渲染
     }
 }
 
