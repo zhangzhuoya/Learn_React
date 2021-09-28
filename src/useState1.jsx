@@ -12,7 +12,7 @@ export default function Vote(props){
     // 2. 每一次重新赋值状态，都会额外开辟一些内容空间，所以官方推荐我们使用多次use-State
     // let [状态state，修改状态的方法set-state] = useState(初始状态值)
     // set-state(n) 把state值修改为n（重新渲染视图）
-    // let [supNum, setSupNum] = useState(0)
+    // let [supNum, setSupNum] = useState(0) setSupNum(supNum+1)
     // let [oppNum, setoppNum] = useState(0)
     let [state,setState] = useState({
         supNum:0,

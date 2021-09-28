@@ -11,22 +11,39 @@ function reducer(state,action) {
     switch(action.type){
         case 'CHANGE-N':
             state={...state,n:action.payload};
-            break
+            break;
+        case 'CHANGE-M':
+        state={...state,m:action.payload};
+        break;
+    default: throw new Error()
     }
+    return state;// 返回啥相当于把容器改啥。
     
 }
 export default function ReducerBox() {
-   let [state, dispatch] = useReducer(reducer,initailState)
-   dispatch({
-       type: 'CHANGE-N',
-       payload: 100
-   })
+   let [state, dispatch] = useReducer(reducer,initailState);
+   let {n,m} = state;
+   let total = isNaN(n+m) ? 0 : n+m
+//    dispatch({
+//        type: 'CHANGE-N',
+//        payload: 100
+//    })
    
    return <div>
-      <input type="text"/>
+      <input type="text" value={n} onChange={e=>{
+             dispatch({
+                type: 'CHANGE-N',
+                payload: e.target.value
+            })
+      }}/>
       +
-      <input type="text"/>
+      <input type="text" value={m} onChange={e=>{
+             dispatch({
+                type: 'CHANGE-N',
+                payload: e.target.value
+            })
+      }}/>
       =
-      <span></span>
+      <span>{total}</span>
   </div>    
 }

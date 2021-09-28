@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-let state;
-function useState(initialState) {
-    !state ? state = initialState: nulls
-    let state = initialState;
-    function dispathAction(new_state){
-        state = new_state;
-        //=> render
+// let state;
+// function useState(initialState) {
+//     !state ? state = initialState: null
+//     let state = initialState;
+//     function dispathAction(new_state){
+//         state = new_state;
+//         //=> render
         
 
-    }
-    return [state,dispathAction]
+//     }
+//     return [state,dispathAction]
 
-}
+// }
 
 export default function Vote(props){
     console.log(props);
