@@ -1,45 +1,44 @@
-import { TYPES } from '@babel/types'
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import actions from './store/actions'
+import actions from '../store/actions'
 function VoteContent(props) {
-    
-    return<>
-    <p>支持：{}</p>
-    <p>反对：{}</p>
+
+    return <>
+        <p>支持：{props.supNum }</p>
+        <p>反对：{props.oppNum }</p>
     </>
 }
 function Button(props) {
-    return<>
-    <button onClick={()=>{
+    return <>
+        <button onClick={() => {
 
-    }}>支持</button>
-    <button onClick={()=>{
-    }}>反对</button>
+        }}>支持</button>
+        <button onClick={() => {
+        }}>反对</button>
     </>
 }
 class Vote extends React.Component {
-    constructor(props){
-        super(props)
-       
-    }
-   
-    render(){
-        let {supNum,oppNum,changeSupNum}= this.props;
-        console.log(this.props);
-        return<div>
+    // constructor(props){
+    //     super(props)
 
-            <h3>投票组件：<span>N:{supNum+oppNum}</span></h3>
-            <VoteContent></VoteContent>
+    // }
+
+    render() {
+        let { supNum, oppNum, changeSupNum } = this.props;
+        console.log(this.props);
+        return <div>
+
+            <h3>投票组件：<span>N:{supNum + oppNum}</span></h3>
+            <VoteContent supNum={supNum} oppNum={oppNum}></VoteContent>
             <button onClick={changeSupNum}>支持</button>
-            <button onClick={()=>{
-                    // changeSupNum
+            <button onClick={() => {
+                // changeSupNum
             }}>反对</button>
         </div>
     }
     //  第一次渲染完，把redux状态改变后重新渲染组件的方法增加到事件池中
     componentDidMount() {
-       
+
     }
 }
 /**
@@ -50,14 +49,14 @@ class Vote extends React.Component {
  * 返回的结果是一个代理组件，而页面中渲染的是这个代理组件
  * 
  */
-function mapStateToProps(state) {
-    //=> 获取的就是redux容器中的状态
-    // 返回一个对象，对象中的状态信息就是当作属性挂在到组件的属性上
-    return {
-        ...state.vote
-    }
+// function mapStateToProps(state) {
+//     //=> 获取的就是redux容器中的状态
+//     // 返回一个对象，对象中的状态信息就是当作属性挂在到组件的属性上
+//     return {
+//         ...state.vote
+//     }
 
-}
+// }
 // function mapDispatchToProps(dispatch) {
 //     // =>dispatch===store.dispatch
 //     //  this.props.changeSupNum() 就可以完成任务派发了
@@ -80,5 +79,4 @@ function mapStateToProps(state) {
 //         dispatch({type: TYPES.VOTE_CHANGE_SUPNUM})
 //     }
 // }
-export default connect(state=>({...state.vote}),actions.vote)(Vote)
-;
+export default connect(state => ({ ...state.vote }), actions.vote)(Vote);

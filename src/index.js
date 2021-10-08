@@ -1,17 +1,15 @@
 import React  from 'react'
 import reactDom from 'react-dom'
-import App from './pages/App'
+import { Provider } from 'react-redux';
+import store  from './store';
+import Vote from './react-redux/Vote';
 /**
- * RREACT中的路由管理
- * REACT-ROUTER-DOM(第四代版本开始)
- * => hash路由（地址丑）
- * => browser路由（h5 history api）（需要服务器对404页面做处理，如果请求页面不存在
- * 让其渲染首页的内容
- * ）
+ * Provider: REDUX祖先组件目的是把REDUX容器中的STORE放到上下文中，
+ * 供后代组件直接调取使用
+ * 
  */
 reactDom.render(<div>
-
-  <>
-  <App/>
-  </>
+  <Provider store={store}>
+    <Vote></Vote>
+  </Provider>
   </div>,document.getElementById('root'))

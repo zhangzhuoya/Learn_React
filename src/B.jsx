@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import actions from './store/actions'
+import actions from './2.redux的工程目录/store/actions'
 function B(props){
     return <>
         <button onClick={props.changeN}>+</button>
